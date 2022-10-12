@@ -3,21 +3,21 @@ const express = require('express')
 const app = express()
 
 //pull in socket.io
-const http = require('http').createServer(app)
+// const http = require('http').createServer(app)
 
-const io = require('socket.io')(http, {
-    cors: {
-        credentials: true,
-        origin: "*",
-        methods: ["GET", "POST"],
-        transports: ['websocket', 'polling'],
+// const io = require('socket.io')(http, {
+//     cors: {
+//         credentials: true,
+//         origin: "*",
+//         methods: ["GET", "POST"],
+//         transports: ['websocket', 'polling'],
 
-    },
-    allowEI03: true
-});
+//     },
+//     allowEI03: true
+// });
 
 //pull in game variables
-// const io = require('socket.io')();
+const io = require('socket.io')();
 const {initGame, gameLoop, getUpdatedVelocity } = require('./game');
 const {FRAME_RATE} = require('./constants');
 const {makeid} = require('./utils');
@@ -119,4 +119,14 @@ io.on('connection', client => {
       .emit('gameOver', JSON.stringify({ winner }));
   }
 
-http.listen(3000)
+// http.listen(3000)
+io.listen(process.env.PORT||3000)
+
+
+
+
+
+
+
+
+

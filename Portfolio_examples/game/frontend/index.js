@@ -4,7 +4,7 @@ const SNAKE_COLOUR = '#c2c2c2'
 const FOOD_COLOUR = '#e66916'
 
 
-const socket = io('https://afternoon-wildwood-24009.herokuapp.com/',{
+const socket = io('https://multiplayersnakenhacton.herokuapp.com/',{
 });
 
 socket.on('init', handleInit);

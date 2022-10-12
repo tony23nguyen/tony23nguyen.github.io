@@ -22,6 +22,9 @@ const {initGame, gameLoop, getUpdatedVelocity } = require('./game');
 const {FRAME_RATE} = require('./constants');
 const {makeid} = require('./utils');
 
+// http.listen(3000)
+io.listen(process.env.PORT||3000)
+
 //create a state to hold all possible states
 const state = {};
 const clientRooms = {};
@@ -119,8 +122,6 @@ io.on('connection', client => {
       .emit('gameOver', JSON.stringify({ winner }));
   }
 
-// http.listen(3000)
-io.listen(process.env.PORT||3000)
 
 
 

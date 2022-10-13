@@ -4,7 +4,7 @@ const FOOD_COLOUR = '#e66916';
 
 const socket = io('https://multiplayersnakenhacton.herokuapp.com/',{
   withCredentials: true,
-  transports: ['polling']
+  transports: ['polling', 'websocket', 'flashsocket']
 });
 
 socket.on('init', handleInit);

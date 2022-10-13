@@ -4,7 +4,15 @@ const FOOD_COLOUR = '#e66916';
 
 const socket = io('https://multiplayersnakenhacton.herokuapp.com/',{
   withCredentials: true,
-  transports: ['polling', 'websocket', 'flashsocket']
+  // transports: ['polling', 'websocket', 'flashsocket']
+
+  transportationOptions:{
+    polling: {
+      extraHeaders:{
+        'my-custom-header': "abcd"
+      }
+    }
+  }
 });
 
 socket.on('init', handleInit);

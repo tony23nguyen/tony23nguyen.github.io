@@ -3,8 +3,9 @@ const BG_COLOUR = '#231f20'
 const SNAKE_COLOUR = '#c2c2c2'
 const FOOD_COLOUR = '#e66916'
 
-
+import { io } from "socket.io-client"
 const socket = io('https://multiplayersnakenhacton.herokuapp.com/',{
+  withCredentials: true,
 });
 
 socket.on('init', handleInit);
